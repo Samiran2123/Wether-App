@@ -4,27 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weather Application</title>
-    <link rel="stylesheet" href="style.css">
-  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <h1>Weather Application</h1>
-
 
   <div class="search-bar">
     <input type="text" id="city-input" placeholder="Enter city name" />
     <button id="search-btn">Get Weather</button>
   </div>
 
-<div class="weather-info">
-  <h2 id="city-name">City Name</h2>
-  <p id="temperature">Temperature: --°C</p>
-  <p id="weather-description">Description: --</p>
-  <p id="humidity">Humidity: --%</p>
-  <p id="wind-speed">Wind Speed: -- km/h</p>
-</div>
- <script src="app.js"></script>
+  <div class="weather-info">
+    <h2 id="city-name">City Name</h2>
+    <p id="temperature">Temperature: --°C</p>
+    <p id="weather-description">Description: --</p>
+    <p id="humidity">Humidity: --%</p>
+    <p id="wind-speed">Wind Speed: -- km/h</p>
+  </div>
 
+  <div class="forecast-section">
+    <h2 class="forecast-title">3-Day Forecast</h2>
+    <div class="forecast-container">
+      <div class="forecast-day">
+        <div class="day-name" id="day-1-name">Day 1</div>
+        <div class="day-date" id="day-1-date">--</div>
+        <div class="weather-icon" id="day-1-icon">🌤️</div>
+        <div class="day-temp-high" id="day-1-high">--°C</div>
+        <div class="day-temp-low" id="day-1-low">--°C</div>
+        <div class="day-description" id="day-1-description">--</div>
+        <div class="day-humidity" id="day-1-humidity">Humidity: --%</div>
+        <div class="day-wind" id="day-1-wind">Wind: -- km/h</div>
+      </div>
+      
+      <div class="forecast-day">
+        <div class="day-name" id="day-2-name">Day 2</div>
+        <div class="day-date" id="day-2-date">--</div>
+        <div class="weather-icon" id="day-2-icon">🌤️</div>
+        <div class="day-temp-high" id="day-2-high">--°C</div>
+        <div class="day-temp-low" id="day-2-low">--°C</div>
+        <div class="day-description" id="day-2-description">--</div>
+        <div class="day-humidity" id="day-2-humidity">Humidity: --%</div>
+        <div class="day-wind" id="day-2-wind">Wind: -- km/h</div>
+      </div>
+      
+      <div class="forecast-day">
+        <div class="day-name" id="day-3-name">Day 3</div>
+        <div class="day-date" id="day-3-date">--</div>
+        <div class="weather-icon" id="day-3-icon">🌤️</div>
+        <div class="day-temp-high" id="day-3-high">--°C</div>
+        <div class="day-temp-low" id="day-3-low">--°C</div>
+        <div class="day-description" id="day-3-description">--</div>
+        <div class="day-humidity" id="day-3-humidity">Humidity: --%</div>
+        <div class="day-wind" id="day-3-wind">Wind: -- km/h</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
