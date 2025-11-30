@@ -141,3 +141,53 @@ cityInput.addEventListener('keypress', function(event) {
 document.addEventListener('DOMContentLoaded', function() {
   cityName.textContent = 'Enter a city name to get weather information';
 });
+
+
+
+
+
+
+
+function buildThreeDayForecast(cityName) {
+  const types = ['Sunny', 'Overcast', 'Rain', 'Snow'];
+  const descriptions = {
+    'Sunny': ['clear skies','bright and sunny','warm sunshine'],
+    'Overcast': ['cloudy','mostly cloudy','gray skies'],
+    'Rain': ['light rain','showers','periods of rain'],
+    'Snow': ['light snow','snow flurries','snowy']
+  };
+
+  const forecast = [];
+  const dt = new Date();
+
+  for (let i = 0; i < 3; i++) {
+    const copy = new Date(dt);
+    copy.setDate(dt.getDate() + i);
+
+    const rawHigh = Math.random() * 45 - 5; // -5..40
+    const rawLow = rawHigh - (Math.random() * 8 + 1); // ensure low <= high
+    const humidity = (Math.random() * 100).toFixed(1);
+    const wind = (Math.random() * 25).toFixed(1);
+
+    const kind = types[Math.floor(Math.random() * types.length)];
+    const descList = descriptions[kind];
+    const desc = descList[Math.floor(Math.random() * descList.length)];
+
+    forecast.push({
+      city: cityName,
+      date: copy.toISOString().slice(0, 10), // YYYY-MM-DD
+      high: `${Number(rawHigh.toFixed(1))}°C`,
+      low: `${Number(rawLow.toFixed(1))}°C`,
+      condition: kind,
+      description: desc,
+      humidity: `${humidity}%`,
+      wind_kmh: `${wind}`
+    });
+  }
+
+  return forecast;
+}
+
+// Example usage
+const example = buildThreeDayForecast('Mumbai');
+console.log(example);
