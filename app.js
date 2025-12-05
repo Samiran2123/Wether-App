@@ -187,7 +187,49 @@ function buildThreeDayForecast(cityName) {
 
   return forecast;
 }
+function fetchMockLocation() {
+  return {
+    lat: 40.7128,
+    lon: -74.0060  
+  };
+}
 
-// Example usage
-const example = buildThreeDayForecast('Mumbai');
-console.log(example);
+const mockLoc = fetchMockLocation();
+function createForecast(city, lat, lon) {
+  if (!city || typeof city !== "string") {
+    throw new Error("City name is missing or invalid.");
+  }
+  const states = ["Sunny", "Cloudy", "Rainy", "Snowy"];
+  const data = [];
+  let d = new Date();
+  for (let i = 0; i < 3; i++) {
+    const entry = {
+      date: `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`,
+      temperature: (Math.random() * 40 - 5).toFixed(1),
+      condition: states[Math.floor(Math.random() * states.length)],
+      humidity: (Math.random() * 100).toFixed(1),
+      windSpeed: (Math.random() * 20).toFixed(1),
+      lat,
+      lon,
+    };
+    data.push(entry);
+    d.setDate(d.getDate() + 1);
+  }
+  return data;}
+function iconForWeather(condition) {
+  const key = condition.toLowerCase();
+  if (key === "sunny") return "☀️";
+  if (key === "cloudy") return "☁️";
+  if (key === "rainy") return "🌧️";
+  if (key === "snowy") return "❄️";
+  return "🌤️"; 
+}
+forecast.forEach(day => {
+  const icon = iconForWeather(day.condition);
+  console.log("-------------------------------");
+  console.log(`Date: ${day.date}`);
+  console.log(`Condition: ${day.condition}  ${icon}`);
+  console.log(`Temperature: ${day.temperature}°C`);
+  console.log(`Humidity: ${day.humidity}%`);
+  console.log(`Location: (${day.lat}, ${day.lon})`);
+});

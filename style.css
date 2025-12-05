@@ -150,3 +150,20 @@ button:hover {
     width: 90%;
   }
 }
+/* Extra buttons for Celsius + Fahrenheit */
+#show-celsius-btn,
+#show-fahrenheit-btn {
+  padding: 10px 15px;
+  background-color: #4a90e2;   /* same as Get Weather button */
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+#show-celsius-btn:hover,
+#show-fahrenheit-btn:hover {
+  background-color: #357abd;   /* same hover color */
+}
